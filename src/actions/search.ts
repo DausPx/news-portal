@@ -19,7 +19,6 @@ export const getSearchArticles = (q: string, sortBy: string) => {
           type: actions.ADD_SEARCH_ARTICLES,
           payload: result.data.articles,
         });
-        console.log("getSearch", encodeURI(q));
       })
       .catch((err) => {
         console.log(err);
@@ -48,7 +47,6 @@ export const LoadNextPage = (q: string, sortBy: string, page: number) => {
         if (result.data.articles.length === 0) {
           dispatch({ type: actions.FETCHED_ALL_SEARCH });
         }
-        console.log("getSearchPage", result.data.articles);
       })
       .catch((err) => {
         console.log(err);
@@ -63,4 +61,8 @@ export const setSearchQuery = (query: string) => {
 
 export const setActiveArticle = (article: IArticle) =>{
   return {type: actions.SET_ACTIVE_ARTICLE, payload: article}
+}
+
+export const setSortBy = (sortBy:string)=>{
+  return {type: actions.SET_SORT_BY, payload:sortBy}
 }

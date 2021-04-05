@@ -21,7 +21,6 @@ const useTopHeadlines = (): [boolean, IArticle[], boolean] => {
           page: topHeadlines.page,
         },
       });
-      console.log("fetched", result.data);
       return result.data.articles;
     } catch (error) {
       console.log(error);

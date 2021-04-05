@@ -37,11 +37,11 @@ const searchResult = (state = initialState, action: any) => {
         ...state,
         fetchedAll: true,
       };
-      case actions.SET_ACTIVE_ARTICLE:
-        return {
-          ...state,
-          activeArticle: action.payload,
-        };
+    case actions.SET_ACTIVE_ARTICLE:
+      return {
+        ...state,
+        activeArticle: action.payload,
+      };
     case actions.ADD_SEARCH_ARTICLES:
       return {
         ...state,
@@ -49,11 +49,16 @@ const searchResult = (state = initialState, action: any) => {
         articles: [...action.payload],
         fetchedAll: false,
       };
-      case actions.SET_SEARCH_QUERY:
-        return {
-          ...state,
-          query: action.payload,
-        };
+    case actions.SET_SEARCH_QUERY:
+      return {
+        ...state,
+        query: action.payload,
+      };
+    case actions.SET_SORT_BY:
+      return {
+        ...state,
+        sortBy: action.payload,
+      };
     case actions.LOADING_TRUE:
       return {
         ...state,
