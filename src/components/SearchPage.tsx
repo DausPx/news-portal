@@ -1,13 +1,13 @@
 import React from 'react'
 
 
-export type ArticleProps = {
+export type SearchPageProps = {
     children?: never,
 }
-const Article = (props:ArticleProps): JSX.Element =>{
+const SearchPage = (props:SearchPageProps): JSX.Element =>{
     return (
     <div className="w-full h-auto bg-gray-800">
-        Article
+        Search
     </div>)
 }
-export default Article;
+export default SearchPage;

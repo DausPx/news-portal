@@ -1,11 +1,10 @@
 import React from "react";
 import "./App.css";
-import { Switch, Route } from "react-router";
-import Home from "./components/Home";
-import Article from "./components/Article";
-import Search from "./components/Search";
+import HomePage from "./components/HomePage";
+import ArticlePage from "./components/ArticlePage";
+import SearchPage from "./components/SearchPage";
 import DefaultLayout from "./components/DefaultLayout";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Switch , Route } from "react-router-dom";
 
 function App() {
   return (
@@ -13,13 +12,13 @@ function App() {
       <DefaultLayout>
         <Switch>
           <Route exact path="/">
-            <Home />
+            <HomePage />
           </Route>
-          <Route exact path="/article/:artileId">
-            <Article />
+          <Route exact path="/article/:articleId">
+            <ArticlePage />
           </Route>
           <Route exact path="/search/:searchText">
-            <Search />
+            <SearchPage />
           </Route>
         </Switch>
       </DefaultLayout>
