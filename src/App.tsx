@@ -17,7 +17,7 @@ function App() {
           <Route exact path="/article/:articleId">
             <ArticlePage />
           </Route>
-          <Route exact path="/search/:searchText">
+          <Route exact path="/search">
             <SearchPage />
           </Route>
         </Switch>

@@ -22,17 +22,20 @@ const HomePage = (props: HomePageProps): JSX.Element => {
           return (
             <div key={index} className="flex w-full h-12 my-2">
               <p>{article.title}</p>
-              <Link to={`/article/${index}`} className="mx-2">READ FULL ARTICLE</Link>
+              <Link to={`/article/${index}`} className="mx-2">
+                READ FULL ARTICLE
+              </Link>
             </div>
           );
         })}
 
-      {loading ? <p>Loading</p> : null}
+      {loading && <p>Loading</p>}
 
       {articles.length !== 0 && !fetchedAll && (
         <button onClick={loadMoreArticles}>Load more</button>
       )}
-      {fetchedAll && <p>You loaded all top articles</p>}
+
+      {fetchedAll && <p>There are no more articles</p>}
     </div>
   );
 };
