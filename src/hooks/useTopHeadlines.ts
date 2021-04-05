@@ -7,7 +7,7 @@ import { IArticle } from "../reducers/topHeadlines";
 
 const useTopHeadlines = (): [boolean, IArticle[], boolean] => {
   const topHeadlines = useSelector(
-    (state: appState) => state.topHeadlinesModule
+    (state: appState) => state.topHeadlines
   );
   const dispatch = useDispatch();
 

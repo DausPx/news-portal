@@ -8,7 +8,7 @@ export type ArticlePageProps = {
 };
 const SearchArticlePage = (props: ArticlePageProps): JSX.Element => {
   const article = useSelector(
-    (state: appState) => state.searchResultModule.activeArticle
+    (state: appState) => state.searchResult.activeArticle
   );
   const history = useHistory();
 

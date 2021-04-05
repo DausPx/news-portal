@@ -3,6 +3,7 @@ import "./App.css";
 import HomePage from "./components/HomePage";
 import ArticlePage from "./components/ArticlePage";
 import SearchPage from "./components/SearchPage";
+import SearchArticlePage from "./components/SearchArticlePage";
 import DefaultLayout from "./components/DefaultLayout";
 import { BrowserRouter, Switch , Route } from "react-router-dom";
 
@@ -19,6 +20,9 @@ function App() {
           </Route>
           <Route exact path="/search">
             <SearchPage />
+          </Route>
+          <Route exact path="/search/article">
+            <SearchArticlePage />
           </Route>
         </Switch>
       </DefaultLayout>

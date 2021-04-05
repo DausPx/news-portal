@@ -37,6 +37,11 @@ const searchResult = (state = initialState, action: any) => {
         ...state,
         fetchedAll: true,
       };
+      case actions.SET_ACTIVE_ARTICLE:
+        return {
+          ...state,
+          activeArticle: action.payload,
+        };
     case actions.ADD_SEARCH_ARTICLES:
       return {
         ...state,

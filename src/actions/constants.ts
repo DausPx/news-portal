@@ -9,4 +9,5 @@ export const actions = {
     SET_SEARCH_QUERY: "set_search_query",
     ADD_SEARCH_PAGE: "add_search_page",
     FETCHED_ALL_SEARCH: "fetched_all_search",
+    SET_ACTIVE_ARTICLE: "set_active_artice",
   }

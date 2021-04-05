@@ -10,7 +10,7 @@ export type ArticlePageProps = {
 const ArticlePage = (props: ArticlePageProps): JSX.Element => {
   const { articleId } = useParams<Record<string, string | undefined>>();
   const articles = useSelector(
-    (state: appState) => state.topHeadlinesModule.articles
+    (state: appState) => state.topHeadlines.articles
   );
   const [article, setArticle] = useState<IArticle | undefined>();
   const history = useHistory();
@@ -21,7 +21,6 @@ const ArticlePage = (props: ArticlePageProps): JSX.Element => {
     if (found) {
       setArticle(found);
     } else history.replace("/");
-    
   }, [articles, articleId, history]);
 
   return (

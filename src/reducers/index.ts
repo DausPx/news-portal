@@ -3,13 +3,13 @@ import searchResult, { SearchResultState } from "./searchResult";
 import topHeadlines, { TopHeadlinesState } from "./topHeadlines";
 
 export interface appState {
-  topHeadlinesModule: TopHeadlinesState;
-  searchResultModule: SearchResultState;
+  topHeadlines: TopHeadlinesState;
+  searchResult: SearchResultState;
 }
 
 const reducers = combineReducers({
-  topHeadlinesModule: topHeadlines,
-  searchResultModule: searchResult,
+  topHeadlines: topHeadlines,
+  searchResult: searchResult,
 });
 
 export default reducers;

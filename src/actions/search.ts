@@ -1,6 +1,7 @@
 import { actions } from "./constants";
 import { Dispatch } from "redux";
 import API from "../api/api";
+import { IArticle } from "../reducers/topHeadlines";
 
 export const getSearchArticles = (q: string, sortBy: string) => {
   return (dispatch: Dispatch) => {
@@ -59,3 +60,7 @@ export const LoadNextPage = (q: string, sortBy: string, page: number) => {
 export const setSearchQuery = (query: string) => {
   return { type: actions.SET_SEARCH_QUERY, payload: query };
 };
+
+export const setActiveArticle = (article: IArticle) =>{
+  return {type: actions.SET_ACTIVE_ARTICLE, payload: article}
+}
