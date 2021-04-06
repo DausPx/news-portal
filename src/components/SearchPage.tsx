@@ -9,6 +9,7 @@ import {
 } from "../actions/search";
 import { appState } from "../reducers";
 import { IArticle } from "../reducers/topHeadlines";
+import ArtilceBox from "./ArticleBox";
 
 export type SearchPageProps = {
   children?: never;
@@ -46,7 +47,7 @@ const SearchPage = (props: SearchPageProps): JSX.Element => {
   }, [query, sortBy, dispatch]);
 
   return (
-    <div className="w-full h-auto bg-gray-800">
+    <div className="w-full h-auto">
       <div className="w-full h-12 flex flex-col">
         <div className="w-full">
           <p>Sort by Section</p>
@@ -84,36 +85,36 @@ const SearchPage = (props: SearchPageProps): JSX.Element => {
           </div>
         </div>
       </div>
+      <section className="text-gray-600 body-font">
+        <div className="container px-5 py-24 mx-auto">
+          <div className="flex flex-wrap -m-4">
+            {articles.length !== 0 &&
+              articles.map((article, index) => {
+                return (
+                  <ArtilceBox
+                    key={index}
+                    article={article}
+                    index={index}
+                    goToArticle={goToArticlePage}
+                  />
+                );
+              })}
+          </div>
+          <div className="text-center mt-2 leading-none flex flex-col justify-center content-center w-full py-4">
+            {loading && <p>Loading</p>}
+            {articles.length !== 0 && !fetchedAll && (
+              <button
+                className="flex mx-auto mt-16 text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg"
+                onClick={loadMoreArticles}
+              >
+                Load more
+              </button>
+            )}
 
-      <div className="w-full">
-        {articles.length === 0 && (
-          <p>No Result for your search. Please search again.</p>
-        )}
-        {articles.length !== 0 &&
-          articles.map((article, index) => {
-            return (
-              <div key={index} className="flex w-full h-12 my-2">
-                <p>{article.title}</p>
-                <button
-                  className="px-2"
-                  onClick={() => {
-                    goToArticlePage(article);
-                  }}
-                >
-                  READ FULL ARTICLE
-                </button>
-              </div>
-            );
-          })}
-
-        {loading && <p>Loading</p>}
-
-        {articles.length !== 0 && !fetchedAll && (
-          <button onClick={loadMoreArticles}>Load more</button>
-        )}
-
-        {fetchedAll && <p>There are no more articles</p>}
-      </div>
+            {fetchedAll && <p>There are no more articles</p>}
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

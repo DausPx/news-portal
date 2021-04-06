@@ -51,7 +51,7 @@ const DefaultLayout = (props: DefaultLayoutProps): JSX.Element => {
         />
         <button className="w-24 h-full mx-2 bg-gray-800" onClick={onSearch}>Search</button>
       </div>
-      <div className="w-full bg-gray-500">
+      <div className="w-full bg-gray-200">
         {props.children}
       </div>
     </div>
