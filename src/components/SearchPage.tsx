@@ -16,14 +16,10 @@ export type SearchPageProps = {
 };
 
 const SearchPage = (props: SearchPageProps): JSX.Element => {
-  const articles = useSelector(
-    (state: appState) => state.searchResult.articles
-  );
+  const articles = useSelector((state: appState) => state.searchResult.articles);
   const query = useSelector((state: appState) => state.searchResult.query);
   const sortBy = useSelector((state: appState) => state.searchResult.sortBy);
-  const fetchedAll = useSelector(
-    (state: appState) => state.searchResult.fetchedAll
-  );
+  const fetchedAll = useSelector((state: appState) => state.searchResult.fetchedAll);
   const loading = useSelector((state: appState) => state.searchResult.loading);
   const page = useSelector((state: appState) => state.searchResult.page);
   const history = useHistory();
@@ -48,45 +44,45 @@ const SearchPage = (props: SearchPageProps): JSX.Element => {
 
   return (
     <div className="w-full h-auto">
-      <div className="w-full h-12 flex flex-col">
-        <div className="w-full">
-          <p>Sort by Section</p>
-        </div>
-        <div className="w-full flex">
-          <div className="w-40 flex">
-            <input
-              type="checkbox"
-              checked={sortBy === "publishedAt"}
-              className="m-2"
-              onChange={onCheckboxChange}
-              value="publishedAt"
-            />
-            <p>Published date</p>
-          </div>
-          <div className="w-40 flex">
-            <input
-              type="checkbox"
-              checked={sortBy === "popularity"}
-              className="m-2"
-              onChange={onCheckboxChange}
-              value="popularity"
-            />
-            <p>Popularity</p>
-          </div>
-          <div className="w-40 flex">
-            <input
-              type="checkbox"
-              checked={sortBy === "relevancy"}
-              className="m-2"
-              onChange={onCheckboxChange}
-              value="relevancy"
-            />
-            <p>Relevance</p>
-          </div>
-        </div>
-      </div>
       <section className="text-gray-600 body-font">
-        <div className="container px-5 py-24 mx-auto">
+        <div className="w-full flex flex-col justify-center items-center pt-20">
+          <label className="inline-flex items-center mt-3">
+            Sort by section
+          </label>
+          <div className="flex flex-col md:flex-row mt-2">
+            <label className="inline-flex items-center my-1 md:mx-3 md:my-0">
+              <input
+                type="checkbox"
+                checked= {sortBy === "publishedAt"}
+                className="form-checkbox h-5 w-5 text-gray-600"
+                value="publishedAt"
+                onChange={onCheckboxChange}
+              />
+              <span className="ml-2 text-gray-700">Published date</span>
+            </label>
+            <label className="inline-flex items-center my-1 md:mx-3 md:my-0">
+              <input
+                type="checkbox"
+                checked={sortBy === "popularity"}
+                className="form-checkbox h-5 w-5 text-gray-600"
+                value="popularity"
+                onChange={onCheckboxChange}
+              />
+              <span className="ml-2 text-gray-700">Popularity</span>
+            </label>
+            <label className="inline-flex items-center my-1 md:mx-3 md:my-0">
+              <input
+                type="checkbox"
+                checked={sortBy === "relevancy"}
+                className="form-checkbox h-5 w-5 text-gray-600"
+                value="relevancy"
+                onChange={onCheckboxChange}
+              />
+              <span className="ml-2 text-gray-700">Relevance</span>
+            </label>
+          </div>
+        </div>
+        <div className="container px-5 pb-24 pt-10 mx-auto">
           <div className="flex flex-wrap -m-4">
             {articles.length !== 0 &&
               articles.map((article, index) => {
@@ -118,4 +114,5 @@ const SearchPage = (props: SearchPageProps): JSX.Element => {
     </div>
   );
 };
+
 export default SearchPage;
