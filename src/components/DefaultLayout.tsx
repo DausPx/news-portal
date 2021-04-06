@@ -56,28 +56,6 @@ const DefaultLayout = (props: DefaultLayoutProps): JSX.Element => {
           </div>
         </div>
       </header>
-      {/* <div className="flex w-full h-12 bg-green-500">
-        <NavLink
-          activeStyle={{
-            backgroundColor: "rgba(107, 114, 128, var(--tw-bg-opacity))",
-          }}
-          to="/"
-          className="mx-2"
-        >
-          Home
-        </NavLink>
-        <input
-          placeholder="To search"
-          type="text"
-          value={searchText}
-          onChange={onChange}
-          onKeyDown={onKeyDown}
-          className="w-24 h-full mx-2"
-        />
-        <button className="w-24 h-full mx-2 bg-gray-800" onClick={onSearch}>
-          Search
-        </button>
-      </div> */}
       <div className="w-full">{props.children}</div>
     </div>
   );
