@@ -14,11 +14,11 @@ const ArtilceBox = ({
   goToArticle,
 }: ArticleBoxProps): JSX.Element => {
   return (
-    <div className="p-4 md:w-1/3">
+    <div className="p-4 lg:w-1/3">
       {article.urlToImage ? (
-        <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+        <div className="h-full border-2 bg-gray-100 border-gray-300 border-opacity-60 rounded-lg overflow-hidden">
           <img
-            className="lg:h-48 md:h-36 w-full object-cover object-center"
+            className="lg:h-48 md:h-96 w-full object-cover object-center"
             src={article.urlToImage}
             alt="news"
           />
@@ -54,7 +54,7 @@ const ArtilceBox = ({
           </div>
         </div>
       ) : (
-        <div className="h-full bg-gray-100 bg-opacity-75 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
+        <div className="h-full bg-gray-100 border-2 border-gray-300 border-opacity-60 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
           <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
             {article.author}
           </h2>
@@ -87,7 +87,7 @@ const ArtilceBox = ({
   );
 };
 
-const ArrowSVG = (): JSX.Element => {
+export const ArrowSVG = (): JSX.Element => {
   return (
     <svg
       className="w-4 h-4 ml-2"
