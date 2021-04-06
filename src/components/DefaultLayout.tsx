@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
-import { NavLink, useHistory } from "react-router-dom";
+import { NavLink, useHistory} from "react-router-dom";
 import { setSearchQuery } from "../actions/search";
 
 export type DefaultLayoutProps = {
   children: React.ReactNode;
 };
 const DefaultLayout = (props: DefaultLayoutProps): JSX.Element => {
-  const [searchText, setSearchText] = useState<string>("");
+  const [searchText, setSearchText] = React.useState<string>("");
   const dispatch = useDispatch();
   const history = useHistory();
 
